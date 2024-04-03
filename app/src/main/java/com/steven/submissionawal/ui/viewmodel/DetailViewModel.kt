@@ -1,4 +1,4 @@
-package com.steven.submissionawal.ui
+package com.steven.submissionawal.ui.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModel
 import com.steven.submissionawal.data.response.DetailUserResponse
 import com.steven.submissionawal.data.response.ItemsItem
 import com.steven.submissionawal.data.retrofit.ApiConfig
+import com.steven.submissionawal.database.FavoriteRepository
+import com.steven.submissionawal.database.entity.FavoriteUser
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,11 +20,11 @@ class DetailViewModel : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _listfollowers = MutableLiveData<List<ItemsItem>>()
-    val listfollowers: LiveData<List<ItemsItem>> = _listfollowers
+    private val _listFollowers = MutableLiveData<List<ItemsItem>>()
+    val listFollowers: LiveData<List<ItemsItem>> = _listFollowers
 
-    private val _listfollowing = MutableLiveData<List<ItemsItem>>()
-    val listfollowing: LiveData<List<ItemsItem>> = _listfollowing
+    private val _listFollowing = MutableLiveData<List<ItemsItem>>()
+    val listFollowing: LiveData<List<ItemsItem>> = _listFollowing
 
     companion object{
         private const val TAG = "DetailActivity"
@@ -58,7 +60,7 @@ class DetailViewModel : ViewModel() {
             ) {
                 _isLoading.value = false
                 if(response.isSuccessful){
-                    _listfollowers.value = response.body()
+                    _listFollowers.value = response.body()
                 }else{
                     Log.e(TAG, "onFailure(getFollower1): ${response.message()}")
                 }
@@ -79,7 +81,7 @@ class DetailViewModel : ViewModel() {
             ) {
                 _isLoading.value = false
                 if(response.isSuccessful){
-                    _listfollowing.value = response.body()
+                    _listFollowing.value = response.body()
                 }else{
                     Log.e(TAG, "onFailure(getFollowing1): ${response.message()}")
                 }

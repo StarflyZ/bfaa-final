@@ -1,5 +1,6 @@
-package com.steven.submissionawal.ui
+package com.steven.submissionawal.ui.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.steven.submissionawal.data.response.ItemsItem
 import com.steven.submissionawal.databinding.FollowRowBinding
+import com.steven.submissionawal.ui.main.DetailActivity
 
 class FollowAdapter : ListAdapter<ItemsItem, FollowAdapter.FollowViewHolder>(DIFF_CALLBACK) {
 

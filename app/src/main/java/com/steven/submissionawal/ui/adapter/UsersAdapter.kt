@@ -1,4 +1,4 @@
-package com.steven.submissionawal.ui
+package com.steven.submissionawal.ui.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -9,10 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.steven.submissionawal.data.response.ItemsItem
 import com.steven.submissionawal.databinding.ItemRowBinding
+import com.steven.submissionawal.ui.main.DetailActivity
 
 class UsersAdapter : ListAdapter<ItemsItem, UsersAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder{
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
     }

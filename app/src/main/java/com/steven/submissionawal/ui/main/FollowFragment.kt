@@ -1,4 +1,4 @@
-package com.steven.submissionawal.ui
+package com.steven.submissionawal.ui.main
 
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.steven.submissionawal.data.response.ItemsItem
 import com.steven.submissionawal.databinding.FragmentFollowBinding
+import com.steven.submissionawal.ui.adapter.FollowAdapter
+import com.steven.submissionawal.ui.viewmodel.DetailViewModel
 
 class FollowFragment : Fragment() {
     private lateinit var binding: FragmentFollowBinding
@@ -29,15 +31,15 @@ class FollowFragment : Fragment() {
 
         if(position == 1){
             viewModel.getFollowers(username)
-            viewModel.listfollowers.observe(viewLifecycleOwner){listfollowers ->
-                Log.d("FollowFragment", "Followers data: $listfollowers")
-                setFollows(listfollowers)
+            viewModel.listFollowers.observe(viewLifecycleOwner){listFollowers ->
+                Log.d("FollowFragment", "Followers data: $listFollowers")
+                setFollows(listFollowers)
             }
         }else{
             viewModel.getFollowing(username)
-            viewModel.listfollowing.observe(viewLifecycleOwner){listfollowing ->
-                Log.d("FollowFragment", "Following data: $listfollowing")
-                setFollows(listfollowing)
+            viewModel.listFollowing.observe(viewLifecycleOwner){listFollowing ->
+                Log.d("FollowFragment", "Following data: $listFollowing")
+                setFollows(listFollowing)
             }
         }
         viewModel.isLoading.observe(viewLifecycleOwner){

@@ -1,4 +1,4 @@
-package com.steven.submissionawal.ui
+package com.steven.submissionawal.ui.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
